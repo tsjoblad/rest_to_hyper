@@ -1,5 +1,5 @@
 # rest_to_hyper
-Provides a framework for automatically building and publishing Tableau Data Sources based on RESTful data levering Tableau's Hyper API[https://help.tableau.com/current/api/hyper_api/en-us/index.html].
+Provides a framework for automatically building and publishing Tableau Data Sources based on RESTful data levering Tableau's [Hyper API](https://help.tableau.com/current/api/hyper_api/en-us/index.html).
 
 ## What does this code do?
 There are four main functionalities of this code:
@@ -36,4 +36,4 @@ https://swapi.co/
 Please submit an issue if you see any room for improvement or notice any issues. I'm still working on making everything as pythonic as possible. :)
 
 ## Acknowledgements
-Outside of the Hyper API code (
+Outside of the Hyper API, I also leverage the [Tableau Server Client](https://tableau.github.io/server-client-python/docs/) libraries and Bryant Howell's [Tableau Tools](https://github.com/bryantbhowell/tableau_tools). I absolutely recommend you check out their docs as well. Lastly, shoutouts to the SWAPI! Learn more about it [here](https://swapi.co/).
