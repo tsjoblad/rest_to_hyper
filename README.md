@@ -15,7 +15,7 @@ Well, good question. It started out as a pet project to get more information abo
 
 
 ## How do I get started?
-There are several key places where you will need to modify the code to fit your use case:
+First, give it a clone and try running main.py! It should work right out of the box. When you are ready to start implementing your own version of the code, there will several key places where you will need to modify the code to fit your use case:
 - callREST.py: the URL of the GET request
 - mapfields.py: tablename, fields (and potentially any nested fields--see example in comments of code for more context)
 - swapandpublish.py: names of files, path, and login information for Tableau (username and password or token)
