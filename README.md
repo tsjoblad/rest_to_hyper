@@ -29,9 +29,6 @@ In my experience, the hardest part of this process is normalizing the results of
 ## Scheduling
 The end goal of this is to be able to schedule main.py to run at a cadence that you choose--programmatically refreshing data from the web and delivering it to your Tableau users. I would recommend using a Windows box and a batch file (or something) to run your resulting code as often as you need.
 
-Shoutouts to the SWAPI! Learn more about it here:
-https://swapi.co/
-
 ## Feedback and Issues
 Please submit an issue if you see any room for improvement or notice any issues. I'm still working on making everything as pythonic as possible. :)
 
