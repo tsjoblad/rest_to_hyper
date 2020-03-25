@@ -5,7 +5,7 @@ Provides a framework for automatically building and publishing Tableau Data Sour
 There are four main functionalities of this code:
 - Pulling data from a GET call and storing the results as nested lists
 - Dynamically creating a hyper instance and defining columns
-- Swapping a .hyper file in a Tableau Data Source (.tds)
+- Swapping a .hyper file in a Tableau Data Source (.tdsx)
 - Publishing the .tds to Tableau Server (or Online)
 
 The different functionalities are divided into separate python files and methods with the goal of creating modular pieces that can be leveraged in other workflows.
@@ -19,6 +19,8 @@ First, give it a clone and try running main.py! It should work right out of the 
 - callREST.py: the URL of the GET request
 - mapfields.py: tablename, fields (and potentially any nested fields--see example in comments of code for more context)
 - swapandpublish.py: names of files, path, and login information for Tableau (username and password or token)
+
+Additionally, you will need to build a 'shell' Packaged Data Source (.tdsx) that the hyper file will be swapped in. I recommend building the hyper file once, using Desktop to connect, save the .tdsx, and rerun the full script again.
 
 
 ## Transforming the GET results
