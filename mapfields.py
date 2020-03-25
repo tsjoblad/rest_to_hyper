@@ -3,9 +3,6 @@ def createdict():
     # name your extract table
     tablename = 'star_wars_characters'
 
-    # use this to denote what member of the json response payload to interate through
-
-    
     fields = [
         #['api key name', 'hyper column name', 'hyper column type']
         ['birth_year', 'Birth Year', 'text'],
@@ -17,7 +14,6 @@ def createdict():
         ['mass', 'Mass (kg)', 'text'],
         ['name', 'Name', 'text']
     ]
-
 
     apikeys = {
         'tablename' : tablename,
@@ -33,6 +29,8 @@ def createdict():
 
 '''
 EXAMPLE NESTED API RESPONSE WITH GUIDE
+
+Sample Nested JSON Response
 {
     "ok": true,
     "offset": "UHS20KECU",
@@ -70,7 +68,7 @@ EXAMPLE NESTED API RESPONSE WITH GUIDE
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-Sample Setup:
+Sample Nested Setup:
 
     tablename = 'slackusers'
 
