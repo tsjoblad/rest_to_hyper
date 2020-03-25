@@ -4,6 +4,7 @@ def build_hyper(forhyper, extract_table, hypername):
     '''Takes nested list and inserts into .hyper file based on extract_table structure.'''
     
     print("Adding data to Hyper...")
+    
     filename = hypername + ".hyper"
 
     # starts hyper process

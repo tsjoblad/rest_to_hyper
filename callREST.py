@@ -23,7 +23,7 @@ def getArguments():
 
 def getREST(url, apikeys):
     '''This function pings a REST API and returns hardcoded fields as a flat, specifically ordered, nested list with values and no keys.'''
-    
+
     #api call setup
     print("Call: " + url)
     fieldlist = apikeys['fields']
@@ -45,6 +45,7 @@ def getREST(url, apikeys):
     for i in fieldlist:
         fields.append(i[0])
 
+    # append results to nested list
     for record in all_data:
         forhyper.append([])
         for i in fields:
@@ -56,3 +57,14 @@ def getREST(url, apikeys):
         index += 1
 
     return forhyper
+
+'''
+
+note:
+the list forhyper is set up as nested lists of values only.
+the order is important, but will be automatically matched with the columns in the hyper table.
+for reference, it should look like this:
+    [[Value 1-A, Value 1-B], [Value 2-A, Value 2-B]]
+where each of the nested lists is equivilant to a row of data.
+
+'''

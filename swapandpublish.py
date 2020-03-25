@@ -23,10 +23,12 @@ def gethypername():
 
 def swap_hyper(logger_obj=None):
     '''Uses tableau_tools to open a local (shell) .tdsx file and replace the hyperfile.'''
+
     newly_built_hyper_filename = hypername + '.hyper'
     local_tds = TableauFileManager.open(
         filename=tdsxname + '.tdsx', logger_obj=logger_obj)
     filenames = local_tds.get_filenames_in_package()
+    
     for filename in filenames:
         # Find my Hyper file
         if filename.find('.hyper') != -1:
