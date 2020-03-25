@@ -31,3 +31,6 @@ The end goal of this is to be able to schedule main.py to run at a cadence that 
 
 Shoutouts to the SWAPI! Learn more about it here:
 https://swapi.co/
+
+## Feedback and Issues
+Please submit an issue if you see any room for improvement or notice any issues. I'm still working on making everything as pythonic as possible. :)
