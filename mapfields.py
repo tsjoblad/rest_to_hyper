@@ -1,5 +1,6 @@
 def createdict():
     '''This function takes manually mapped parameters to define table structure for extract'''
+
     # name your extract table
     tablename = 'star_wars_characters'
 
@@ -24,11 +25,11 @@ def createdict():
     return apikeys
 
 
-#  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
 '''
-EXAMPLE NESTED API RESPONSE WITH GUIDE
+EXAMPLE NESTED API RESPONSE WITH SAMPLE CODE
 
 Sample Nested JSON Response
 {
@@ -66,7 +67,9 @@ Sample Nested JSON Response
     }
 }
 
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
 
 Sample Nested Setup:
 

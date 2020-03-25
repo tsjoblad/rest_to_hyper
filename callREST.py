@@ -3,6 +3,7 @@ import json, requests, argparse
 # Parameter customizaiton here
 def getArguments():
     '''Returns the URL of the GET request, through hardcoded parameters or CL argparse.'''
+
     '''
     parser = argparse.ArgumentParser(description='Input your API information')
     parser.add_argument('--apicall', '-a', required=True, help='base url for rest calls (e.g. https://slack.com/api/ + specific request here')
@@ -16,21 +17,22 @@ def getArguments():
     '''
 
     url = "https://swapi.co/api/people/"
-    print('Using manually set arguments...')
+    print('Using harcoded URL...')
 
     return url
 
 def getREST(url, apikeys):
     '''This function pings a REST API and returns hardcoded fields as a flat, specifically ordered, nested list with values and no keys.'''
+    
     #api call setup
     print("Call: " + url)
     fieldlist = apikeys['fields']
-
-    # parse response
     forhyper = []
     all_data = []
     fields = []
     index = 0
+
+    # loop through paginated results and combine
     while url:
         per_request = requests.get(url)
         per_request_json = per_request.json()
@@ -39,8 +41,6 @@ def getREST(url, apikeys):
             all_data.append(per_request_json['results'][i])
         url = per_request_json['next']
     
-
-
     # create list of fields from apikey
     for i in fieldlist:
         fields.append(i[0])

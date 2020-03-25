@@ -6,8 +6,8 @@ from mapfields import *
 '''
 
 # todo #
-datetime.datetime.utcfromtimestamp(var)?
-commenting best practices
+- datetime.datetime.utcfromtimestamp(var)?
+- fix sqltype limitations 
 
 '''
 
