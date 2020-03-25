@@ -1,7 +1,7 @@
 from tableauhyperapi import *
 from tableau_tools import *
 from tableau_tools.tableau_documents import *
-from getTokens import *
+from getTokens import get_tableau_token
 import tableauserverclient as TSC
 import os
 
