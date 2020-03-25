@@ -1,13 +1,8 @@
-from getTokens import *
 import json, requests, argparse
 
 # Parameter customizaiton here
-manualapicall = "https://slack.com/api/"
-manualrequest = "users.list"
-manualparams = "&pretty=1"
-manualresttoken = get_REST_token()
-
 def getArguments():
+    '''Returns the URL of the GET request, through hardcoded parameters or CL argparse.'''
     '''
     parser = argparse.ArgumentParser(description='Input your API information')
     parser.add_argument('--apicall', '-a', required=True, help='base url for rest calls (e.g. https://slack.com/api/ + specific request here')
@@ -20,7 +15,7 @@ def getArguments():
     print('Thank you kindly...)
     '''
 
-    url = manualapicall + manualrequest + manualresttoken + manualparams
+    url = "https://swapi.co/api/people/"
     print('Using manually set arguments...')
 
     return url
@@ -29,42 +24,35 @@ def getREST(url, apikeys):
     '''This function pings a REST API and returns hardcoded fields as a flat, specifically ordered, nested list with values and no keys.'''
     #api call setup
     print("Call: " + url)
-    rawjson = requests.get(url)
-    forhyper = []
+    fieldlist = apikeys['fields']
 
     # parse response
-    index = 0
-    jsondict = json.loads(rawjson.text)
-    baseobject = apikeys['baseobject']
-    data = jsondict[baseobject]
-
-    fieldlist = apikeys['fields']
-    nestedfieldlist = apikeys['nestedfields']
-    nestedkey = apikeys['nestedkey']
-    
+    forhyper = []
+    all_data = []
     fields = []
-    nestedfields = []
+    index = 0
+    while url:
+        per_request = requests.get(url)
+        per_request_json = per_request.json()
+        num_entries = len(per_request_json['results'])
+        for i in range(0,num_entries):
+            all_data.append(per_request_json['results'][i])
+        url = per_request_json['next']
+    
 
+
+    # create list of fields from apikey
     for i in fieldlist:
         fields.append(i[0])
-        
-    for j in nestedfieldlist:
-        nestedfields.append(j[0])
 
-    for response in data:
+    for record in all_data:
         forhyper.append([])
         for i in fields:
             try:
-                vari = response[i]
+                vari = record[i]
             except:
                 vari = None
             forhyper[index].append(vari)
-        for j in nestedfields:
-            try:
-                varj = response[nestedkey][j]
-            except:
-                varj = None
-            forhyper[index].append(varj)
         index += 1
 
     return forhyper

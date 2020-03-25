@@ -22,35 +22,35 @@ def build_hyper(forhyper, extract_table, hypername):
 def build_table(apikeys):
     '''This function intakes the formatted information from the RESTful source and builds matching tables in hyper'''
 
-    fieldlist = apikeys['fields']
-    nestedfieldlist = apikeys['nestedfields']
-
     sqlbig_int = SqlType.big_int()
     sqlbool = SqlType.bool()
     sqlbytes = SqlType.bytes()
-    #sqlchar = SqlType.char()
+    # sqlchar = SqlType.char()
     sqldate = SqlType.date()
     sqldouble = SqlType.double()
     sqlgeography = SqlType.geography()
     sqlint = SqlType.int()
     sqlinterval = SqlType.interval()
     sqljson = SqlType.json()
-    #sqlnumeric = SqlType.numeric()
+    # sqlnumeric = SqlType.numeric()
     sqloid = SqlType.oid()
     sqlsmallint = SqlType.small_int()
     sqltext = SqlType.text()
     sqltimestamp = SqlType.timestamp()
     sqltimestamp_tz = SqlType.timestamp_tz()
-    #sqlvarchar = SqlType.varchar()
+    # sqlvarchar = SqlType.varchar()
 
     sqltypes = [sqlbig_int, sqlbool, sqlbytes, sqldate, sqldouble, sqlgeography, sqlint, sqlinterval, 
         sqljson, sqloid, sqlsmallint, sqltext, sqltimestamp, sqltimestamp_tz]
-        #missing char, numeric, and varchar because of argument stuff I can't figure out yet :)
+        # missing char, numeric, and varchar because of argument stuff I can't figure out yet :)
 
     #create table
     extract_table = TableDefinition(
         table_name=TableName(apikeys['tablename'])
     )
+    
+    fieldlist = apikeys['fields']
+    
     #add base columns
     for field in fieldlist:
         for sqltype in sqltypes:
@@ -58,15 +58,6 @@ def build_table(apikeys):
             if field[2] == lowersql:
                 field[2] = sqltype
         column = TableDefinition.Column(field[1],field[2])
-        extract_table.add_column(column)
-
-    #add nested columns
-    for nestedfield in nestedfieldlist:
-        for sqltype in sqltypes:
-            lowersql = str(sqltype).lower()
-            if nestedfield[2] == lowersql:
-                nestedfield[2] = sqltype
-        column = TableDefinition.Column(nestedfield[1],nestedfield[2])
         extract_table.add_column(column)
 
     return extract_table

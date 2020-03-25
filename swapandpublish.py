@@ -8,9 +8,9 @@ import os
 
 #note, please do not use file extensions
 #comments indicate desired filetype
-hypername = 'datadevslack' #.hyper
-tdsxname = 'DataDev Slack' #.tdsx
-tdsxfilepath = '/Users/tsjoblad/Desktop/REST to Hyper (Slack)/' #file in this dir
+hypername = 'starwars' #.hyper
+tdsxname = 'StarWars' #.tdsx
+tdsxfilepath = '/Users/tsjoblad/Desktop/REST to Hyper (Github Version)/rest_to_hyper/' #file in this dir
 serveraddress = 'https://us-west-2a.online.tableau.com/'
 site_id = 'alpodev'
 project_name = "Developer Platform"
