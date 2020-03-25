@@ -41,6 +41,7 @@ def swap_hyper(logger_obj=None):
     os.remove(tdsxname + ".tdsx")
     os.rename(tdsxname + " Updated.tdsx", tdsxname + ".tdsx")
 
+
 def publishtoserver():
     '''Publishes updated, local .tdsx to Tableau, overwriting the original file.'''
     

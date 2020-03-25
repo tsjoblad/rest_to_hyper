@@ -91,7 +91,7 @@ Sample Nested Setup:
         ['updated', 'updated', 'int']
     ]
 
-    # when a field exists in a nested structure (like 'profile' below) use this logic
+    # when a field exists in a nested structure (like 'profile' above) use this logic
     # you may need to introduce a second-level nesting or implement this twice
     nestedfields = [
         #['[nestedkey][api key name]', 'hyper column name', 'hyper column type']
