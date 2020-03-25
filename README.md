@@ -1,11 +1,11 @@
 # rest_to_hyper
-Provides a framework for automatically building and publishing Tableau Data Sources based on RESTful data.
+Provides a framework for automatically building and publishing Tableau Data Sources based on RESTful data levering Tableau's [Hyper API](https://help.tableau.com/current/api/hyper_api/en-us/index.html).
 
 ## What does this code do?
 There are four main functionalities of this code:
 - Pulling data from a GET call and storing the results as nested lists
 - Dynamically creating a hyper instance and defining columns
-- Swapping a .hyper file in a Tableau Data Source (.tds)
+- Swapping a .hyper file in a Tableau Data Source (.tdsx)
 - Publishing the .tds to Tableau Server (or Online)
 
 The different functionalities are divided into separate python files and methods with the goal of creating modular pieces that can be leveraged in other workflows.
@@ -20,6 +20,8 @@ First, give it a clone and try running main.py! It should work right out of the 
 - mapfields.py: tablename, fields (and potentially any nested fields--see example in comments of code for more context)
 - swapandpublish.py: names of files, path, and login information for Tableau (username and password or token)
 
+Additionally, you will need to build a 'shell' Packaged Data Source (.tdsx) that the hyper file will be swapped in. I recommend building the hyper file once, using Desktop to connect, save the .tdsx, and rerun the full script again.
+
 
 ## Transforming the GET results
 In my experience, the hardest part of this process is normalizing the results of a GET request. There are just too many APIs that format their JSON (or XML...) in completely different ways. I recommend using a tool like Postman to get a sample response of the JSON you will be 'flattening' for hyper. I've included an example of how to combine the results of multiple, paginated requests, and how to handle a single, larger response that includes information nested within the JSON.
@@ -29,3 +31,9 @@ The end goal of this is to be able to schedule main.py to run at a cadence that 
 
 Shoutouts to the SWAPI! Learn more about it here:
 https://swapi.co/
+
+## Feedback and Issues
+Please submit an issue if you see any room for improvement or notice any issues. I'm still working on making everything as pythonic as possible. :)
+
+## Acknowledgements
+Outside of the Hyper API, I also leverage the [Tableau Server Client](https://tableau.github.io/server-client-python/docs/) libraries and Bryant Howell's [Tableau Tools](https://github.com/bryantbhowell/tableau_tools). I absolutely recommend you check out their docs as well. Lastly, shoutouts to the SWAPI! Learn more about it [here](https://swapi.co/).
